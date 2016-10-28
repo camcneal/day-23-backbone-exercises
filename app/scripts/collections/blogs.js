@@ -6,6 +6,8 @@ const BlogCollection = Backbone.Collection.extend({
   url: 'http://tiny-za-server.herokuapp.com/collections/chris_blogPosts'
 });
 
-let Blogs = new BlogCollection();
+// console.log(this.models);
 
-export default Blogs;
+let blogs = new BlogCollection();
+
+export default blogs;

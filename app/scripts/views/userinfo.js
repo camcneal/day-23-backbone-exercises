@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Backbone from 'backbone';
 
 function renderUserInfo(user) {
     const userContent = $(`
@@ -11,10 +12,22 @@ function renderUserInfo(user) {
       </form>
     `);
       userContent.on('submit', function(e){
-        const first = $(this).find('.first');
-        const last = $(this).find('.last');
-        const address = $(this).find('.address');
-        const phone = $(this).find('.phone');
+        e.preventDefault();
+        const firstName = $(this).find('.first').val();
+        const lastName = $(this).find('.last').val();
+        const address = $(this).find('.address').val();
+        const phoneNumber = $(this).find('.phone').val();
+        console.log(user);
+        user.create({firstName ,lastName,address,phoneNumber
+        },{
+          success: (response) =>{
+            console.log(response);
+            location.hash = 'blogLinks';
+          },
+          error: function(response) {
+            console.log('ERRR',response);
+          }
+        });
 
       });
       return userContent;

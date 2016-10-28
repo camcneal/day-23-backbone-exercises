@@ -1,23 +1,29 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
-import renderForm from './views/blogform';
+import renderBlogForm from './views/blogform';
 import renderUserInfo from './views/userinfo';
-import blogs from './collections/blogs';
-// let posts = new Blogs();
+// import blogs from './collections/blogs';
+import users from './collections/users';
+import renderBlogLinks from './views/blogLinks';
+
 const Router = Backbone.Router.extend({
     routes: {
-      '': 'renderForm',
-      'blogtopia': 'renderUser'
+      '': 'renderBlogForm',
+      'blogtopia': 'renderUser',
+      'blogLinks': 'renderBlogLinks',
     },
-    renderForm: function() {
-      let newBlog = renderForm(blogs);
-      console.log('newBlog', newBlog[0]);
-        $('.container').empty().append(newBlog);
+    renderBlogForm: function() {
+      let newBlog = renderBlogForm();
+      $('.container').empty().append(newBlog);
     },
     renderUser: function () {
-      let newUser = renderUserInfo();
+      let newUser = renderUserInfo(users);
       console.log('newUser',newUser);
       $('.container').empty().append(newUser);
+    },
+    renderBlogLinks: function() {
+      let newBlogLinks = renderBlogLinks();
+      $('.container').empty().append(newBlogLinks);
     }
 });
 

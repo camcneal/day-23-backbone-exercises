@@ -1,14 +1,11 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
-
+import blogsCollection from '../collections/blogs';
 // import Blog from '../model/blog';
 
-function renderForm (blogs) {
+function renderForm () {
   // let blog = new Blog();
   // console.log('blog', blog);
-
-  // console.log('blogs', blogs);
-
   const $element = $(`
   <form class="new-blog">
     <input type="text" name="name" value="" placeholder="blog title">
@@ -20,7 +17,7 @@ function renderForm (blogs) {
    e.preventDefault();
    const title = $(this).find('input[type="text"]').val();
    const body = $(this).find('textarea').val();
-   blogs.create({title, body}, {
+   blogsCollection.create({title, body}, {
      success: (response) => {
        console.log('goood', response);
        location.hash = 'blogtopia';
