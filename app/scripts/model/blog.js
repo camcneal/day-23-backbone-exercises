@@ -8,9 +8,7 @@ const BlogConfig = Backbone.Model.extend({
     body: '',
     timestamp: new Date(),
   },
-  calculate: function() {
-    
-  },
+
 });
 
 // const Blog = Backbone.Model.extend(blogConfig);

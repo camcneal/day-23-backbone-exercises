@@ -13,10 +13,11 @@ function renderBlogLinks(){
 
 
   function addBlogToList(blog) {
-    let li = (`<li id=${blog.get('_id')}>${blog.get('title')}</li>`);
+    console.log(blog);
+    let li = $(`<li id=${blog.get('_id')}>${blog.get('title')}</li>`);
     blogContent.append(li);
 
-    blogContent.find('li').on('click', function(e){
+    li.on('click', function(e){
       console.log('clicking', e.target.id);
       let targetId = e.target.id;
       let model = blogCollection.findWhere({'_id':targetId});
@@ -31,7 +32,7 @@ function renderBlogLinks(){
     });
   }
 
-  blogCollection.map(addBlogToList);
+  
   blogCollection.on('add', addBlogToList);
 
 

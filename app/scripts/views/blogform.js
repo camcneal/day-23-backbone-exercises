@@ -10,7 +10,7 @@ function renderForm () {
   <form class="new-blog">
     <input type="text" name="name" value="" placeholder="blog title">
       <textarea name="blogpost" rows="8" cols="40" placeholder="Empty mind here"></textarea>
-     <input type="submit" name="button" value="save">Namaste</button>
+     <input type="submit" name="button" value="Namaste" ></button>
    </form>
    `);
  $element.on('submit',function(e){
