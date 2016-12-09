@@ -18,6 +18,7 @@ function renderBlogLinks(){
     blogContent.append(li);
 
     li.on('click', function(e){
+      $('div').remove('.bw')
       console.log('clicking', e.target.id);
       let targetId = e.target.id;
       let model = blogCollection.findWhere({'_id':targetId});
@@ -32,7 +33,7 @@ function renderBlogLinks(){
     });
   }
 
-  
+
   blogCollection.on('add', addBlogToList);
 
 
